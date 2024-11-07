@@ -1,4 +1,4 @@
-from tkinter import Tk, Frame, Label, Entry, Scrollbar, VERTICAL, HORIZONTAL, N, S, E, W
+from tkinter import Tk, Frame, Label, Entry, Button, Scrollbar, VERTICAL, HORIZONTAL, N, S, E, W
 from tkinter.ttk import Treeview, Style
 import matplotlib.pyplot as plt
 import requests
@@ -38,6 +38,10 @@ def crea_layout_GUI(root, lotti, aggiungi_lotto, modifica_lotto, elimina_lotto, 
     Label(frame, text="Quantità").grid(row=2, column=0, padx=5, pady=5)
     entry_quantita = Entry(frame)
     entry_quantita.grid(row=2, column=1, padx=5, pady=5)
+
+    Button(frame, text="Aggiungi Lotto", command=aggiungi_lotto).grid(row=3, column=0, padx=5, pady=5)
+    Button(frame, text="Modifica Lotto", command=modifica_lotto).grid(row=3, column=1, padx=5, pady=5)
+    Button(frame, text="Elimina Lotto", command=elimina_lotto).grid(row=3, column=2, padx=5, pady=5)
 
     tree = Treeview(root, columns=("Nome", "Prezzo Acquisto", "Prezzo", "Quantità", "PE TTM", "PB TTM"), show="headings")
     tree.heading("Nome", text="Nome", command=lambda: sort_column(tree, "Nome", False))
